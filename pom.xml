@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	
+	<modelVersion>4.0.0</modelVersion>
+	
+	<groupId>org.cyk.pom</groupId>
+	<artifactId>pom-core</artifactId>
+	<packaging>pom</packaging>
+	<version>1.0.0-SNAPSHOT</version>
+	
+	<name>Pom noyau</name>
+	
+	<properties>
+		<!-- Project -->
+		<character.encoding>UTF-8</character.encoding>
+		<project.build.sourceEncoding>${character.encoding}</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>${character.encoding}</project.reporting.outputEncoding>
+		<project.build.file.name>acte-gestion</project.build.file.name>
+		<finalName>${project.build.file.name}</finalName>
+		
+		<!-- Java -->
+		<java.standard.edition.version>17</java.standard.edition.version>
+		
+		<!-- Maven -->
+		<maven-compiler-plugin.version>3.10.1</maven-compiler-plugin.version>
+		<maven-war-plugin.version>3.3.1</maven-war-plugin.version>
+		<maven.compiler.release>${java.standard.edition.version}</maven.compiler.release>
+		<maven-surefire-plugin.version>3.0.0-M7</maven-surefire-plugin.version>
+		<maven-failsafe-plugin.version>${maven-surefire-plugin.version}</maven-failsafe-plugin.version>
+		<maven-deploy-plugin.version>2.8.2</maven-deploy-plugin.version>
+		<maven-source-plugin.version>3.1.0</maven-source-plugin.version>
+		
+		<!-- Microprofile -->
+		<org.eclipse.microprofile.microprofile.version>3.3</org.eclipse.microprofile.microprofile.version>
+		<org.eclipse.microprofile.config.microprofile-config-api.version>2.0</org.eclipse.microprofile.config.microprofile-config-api.version>
+		<org.eclipse.microprofile.rest.client.microprofile-rest-client-api.version>2.0</org.eclipse.microprofile.rest.client.microprofile-rest-client-api.version>
+		
+		<org.projectlombok.lombok.version>1.18.26</org.projectlombok.lombok.version>
+		
+		<!-- Test -->
+		<org.junit.jupiter.junit-jupiter-engine.version>5.8.1</org.junit.jupiter.junit-jupiter-engine.version>
+		
+		<!-- Deployment -->
+		<dgbf.repository.url>file:///E:/repository/source/git/org/cyk/maven/repository/org.cyk.maven.repository</dgbf.repository.url>
+	</properties>
+	
+	<dependencies>
+		<dependency>
+		    <groupId>org.projectlombok</groupId>
+		    <artifactId>lombok</artifactId>
+		    <version>${org.projectlombok.lombok.version}</version>
+		    <scope>provided</scope>
+		</dependency>
+		
+		<!-- Test -->
+		
+		<dependency>
+		    <groupId>org.junit.jupiter</groupId>
+		    <artifactId>junit-jupiter-engine</artifactId>
+		    <version>${org.junit.jupiter.junit-jupiter-engine.version}</version>
+		    <scope>test</scope>
+		</dependency>
+	</dependencies>
+	
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven-compiler-plugin.version}</version>
+			</plugin>
+			<plugin>
+			    <artifactId>maven-deploy-plugin</artifactId>
+			    <version>${maven-deploy-plugin.version}</version>
+			    <configuration>
+			        <altDeploymentRepository>
+			            dgbf.repository::default::${dgbf.repository.url}
+			        </altDeploymentRepository>
+			    </configuration>
+			</plugin>
+		</plugins>
+		<extensions>
+	    	<extension>
+	        	<groupId>org.apache.maven.wagon</groupId>
+	         	<artifactId>wagon-ftp</artifactId>
+	         	<version>3.5.3</version>
+	      	</extension>
+	  	</extensions>
+	</build>
+</project>
