@@ -49,8 +49,8 @@
 	
 	<scm>
 		<url>https://github.com/devlopper/org.cyk.pom.core</url>
-		<connection>scm:git:git@github.com:devlopper/org.cyk.pom.core.git</connection>
-		<developerConnection>scm:git:git@github.com:devlopper/org.cyk.pom.core.git</developerConnection>
+		<connection>scm:git:git@github.com:kycdev@gmail.com/org.cyk.pom.core.git</connection>
+		<developerConnection>scm:git:git@github.com:kycdev@gmail.com/org.cyk.pom.core.git</developerConnection>
 		<tag>1.0.0</tag>
 	</scm>
 	
