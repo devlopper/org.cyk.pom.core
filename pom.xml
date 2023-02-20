@@ -1,13 +1,12 @@
 <?xml version="1.0"?>
-<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	
 	<modelVersion>4.0.0</modelVersion>
 	
 	<groupId>org.cyk.pom</groupId>
 	<artifactId>pom-core</artifactId>
 	<packaging>pom</packaging>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>1.0.0</version>
 	
 	<name>Pom noyau</name>
 	
@@ -30,6 +29,7 @@
 		<maven-failsafe-plugin.version>${maven-surefire-plugin.version}</maven-failsafe-plugin.version>
 		<maven-deploy-plugin.version>2.8.2</maven-deploy-plugin.version>
 		<maven-source-plugin.version>3.1.0</maven-source-plugin.version>
+		<maven-release-plugi.version>2.5.3</maven-release-plugi.version>
 		
 		<!-- Microprofile -->
 		<org.eclipse.microprofile.microprofile.version>3.3</org.eclipse.microprofile.microprofile.version>
@@ -44,7 +44,15 @@
 		
 		<!-- Deployment -->
 		<dgbf.repository.url>file:///E:/repository/source/git/org/cyk/maven/repository/org.cyk.maven.repository</dgbf.repository.url>
+		<org.apache.maven.wagon.wagon-ftp.version>3.5.3</org.apache.maven.wagon.wagon-ftp.version>
 	</properties>
+	
+	<scm>
+		<url>https://github.com/devlopper/org.cyk.pom.core</url>
+		<connection>scm:git:git@github.com:devlopper/org.cyk.pom.core.git</connection>
+		<developerConnection>scm:git:git@github.com:devlopper/org.cyk.pom.core.git</developerConnection>
+		<tag>1.0.0</tag>
+	</scm>
 	
 	<dependencies>
 		<dependency>
@@ -86,12 +94,22 @@
 			        </altDeploymentRepository>
 			    </configuration>
 			</plugin>
+			<plugin>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>${maven-release-plugi.version}</version>
+				<configuration>
+					<tagNameFormat>@{project.version}</tagNameFormat>
+					<checkModificationExcludes>
+						<checkModificationExclude>pom.xml</checkModificationExclude>
+					</checkModificationExcludes>
+				</configuration>
+			</plugin>
 		</plugins>
 		<extensions>
 	    	<extension>
 	        	<groupId>org.apache.maven.wagon</groupId>
 	         	<artifactId>wagon-ftp</artifactId>
-	         	<version>3.5.3</version>
+	         	<version>${org.apache.maven.wagon.wagon-ftp.version}</version>
 	      	</extension>
 	  	</extensions>
 	</build>
