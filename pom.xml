@@ -1,12 +1,13 @@
 <?xml version="1.0"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	
 	<modelVersion>4.0.0</modelVersion>
 	
 	<groupId>org.cyk.pom</groupId>
 	<artifactId>pom-core</artifactId>
 	<packaging>pom</packaging>
-	<version>1.0.0</version>
+	<version>1.0.0-SNAPSHOT</version>
 	
 	<name>Pom noyau</name>
 	
@@ -51,7 +52,7 @@
 		<url>https://github.com/devlopper/org.cyk.pom.core</url>
 		<connection>scm:git:git@github.com:kycdev@gmail.com/org.cyk.pom.core.git</connection>
 		<developerConnection>scm:git:git@github.com:kycdev@gmail.com/org.cyk.pom.core.git</developerConnection>
-		<tag>1.0.0</tag>
+		<tag>@{project.version}</tag>
 	</scm>
 	
 	<dependencies>
